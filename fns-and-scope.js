@@ -1,5 +1,4 @@
-(() => {
-  debugger
+
 
   //////////////////PROBLEM 1////////////////////
 
@@ -70,14 +69,32 @@
 
     //Answer Here
 
-if (false)
-if (null)
-if (undefined)
-if (0)
-if (NaN)
-if ('')
-if ("")
-if (document.all) [1]
+var x = 0;
+Boolean(x); //0
+
+var y = -0;
+Boolean(y); //-0
+
+var z = ""; //Empty String
+Boolean("");
+
+var ab;
+Boolean(ab); //undefined
+
+
+var cd = null;
+Boolean(cd); //Null
+
+var ef = false;
+Boolean(ef); //false
+
+var gh = 10 / "H";
+Boolean(gh); //NaN
+
+function faulty(){
+  return gh;
+}
+
 
 
   
@@ -117,11 +134,19 @@ if (document.all) [1]
   //Create a function called outerFn which returns an anonymous function which returns your name.
 
     //Code Here
-    var firstName = "Landon ";
-    var lastName = "Johnson";
+    
 
-    var outerFn = function(firstName, lastName){
-      return firstName + lastName;
+
+
+
+
+  function outerFn() {
+       var anonymous = function() {
+        return (function() { 
+            return "Landon Johnson"
+        })();
+    }
+      return anonymous;
     }
     
     
@@ -129,11 +154,13 @@ if (document.all) [1]
   //Now save the result of invoking outerFn into a variable called innerFn.
 
     //Code Here
-    var innerFn = outerFn(firstName, lastName);
+    function innerFn() {
+      return outerFn() && "This is a string";
+    }
   //Now invoke innerFn.
 
-  alert(innerFn);
-})();
+  innerFn();
 
 
-//
+
+    
