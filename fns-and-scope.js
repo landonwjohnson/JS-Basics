@@ -135,31 +135,40 @@ function faulty(){
 
     //Code Here
     
-
-
-
-
-
   function outerFn() {
-       var anonymous = function() {
-        return (function() { 
-            return "Landon Johnson"
-        })();
+    return function(anonymous){
+      return "Landon Johnson";
     }
-      return anonymous;
-    }
+  }
+
+
+
+
+
+  // function outerFn() {
+  //      var anonymous = function() {
+  //       return (function() { 
+  //           return "Landon Johnson"
+  //       })();
+  //   }
+  //     return anonymous;
+  //   }
     
     
 
   //Now save the result of invoking outerFn into a variable called innerFn.
 
     //Code Here
-    function innerFn() {
-      return outerFn() && "This is a string";
-    }
+
+    var innerFn = outerFn();
+
+
+    // function innerFn() {
+    //   return outerFn() && "This is a string";
+    // }
   //Now invoke innerFn.
 
-  innerFn();
+  innerFn(anonymous);
 
 
 
